@@ -1,0 +1,13 @@
+dataset/*
+!dataset/.gitkeep
+
+models/*
+!models/.gitkeep
+
+*.npy
+*.pkl
+*.parquet
+*.jsonl
+bm25_index*/
+__pycache__/
+.ipynb_checkpoints/
