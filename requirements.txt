@@ -1,18 +1,11 @@
-pandas>=2.0,<3.0
-numpy>=1.24,<2.0
+numpy>=1.24
+pandas>=2.0
 pyarrow>=12.0
-
+scipy>=1.10
 scikit-learn>=1.3
+joblib>=1.3
 lightgbm>=4.0
-
-bm25s>=0.2
-
 nltk>=3.8
 
-tqdm>=4.65
-matplotlib>=3.7
-
-transformers>=4.35
-torch>=2.0
-sentencepiece>=0.1.99
-faiss-cpu>=1.7
+# Плотный поиск (e5). Без него: python -m candgen.validate --no-dense
+sentence-transformers>=2.7
