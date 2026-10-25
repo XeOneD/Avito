@@ -1,7 +1,7 @@
 """Генерация кандидатов.
 
 Каждый источник (BM25 по полному тексту, по заголовку, по символьным 3-граммам,
-BM25 внутри города запроса и плотный поиск) даёт свой топ. Кандидаты — их объединение.
+BM25 внутри города запроса и плотный поиск) даёт свой топ. Кандидаты - их объединение.
 Для каждого кандидата сохраняются ранги во всех источниках и точные скоры BM25 и e5:
 скоры берутся из той же матрицы, по которой строился топ, поэтому они есть у любого
 кандидата, а не только у найденных конкретным индексом.
@@ -17,7 +17,7 @@ from candgen.indexes import ItemIndex
 
 
 def _ranks_in_union(union: np.ndarray, found: np.ndarray, missing: int) -> np.ndarray:
-    """union отсортирован. Для каждого элемента union — его позиция в found или missing."""
+    """union отсортирован. Для каждого элемента union - его позиция в found или missing."""
     ranks = np.full(len(union), missing, dtype=np.int32)
     if len(found):
         pos = np.searchsorted(union, found)
@@ -47,7 +47,7 @@ def generate(
     q_offset: int = 0,
     sample_for_training: bool = False,
 ) -> pd.DataFrame:
-    """Кандидаты для queries. Столбец q — номер запроса (позиция в queries + q_offset)."""
+    """Кандидаты для queries. Столбец q - номер запроса (позиция в queries + q_offset)."""
     texts = query_text(queries, cfg)
     q_full = index.full.encode(texts)
     q_title = index.title.encode(texts)

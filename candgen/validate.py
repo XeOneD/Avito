@@ -32,7 +32,7 @@ def run(cfg: Config, max_queries: int | None = None) -> dict:
         "Запросов: fit %d, early stop %d, hold-out %d", len(split.fit), len(split.early_stop), len(split.holdout)
     )
 
-    # Популярность — только по fit: hold-out не должен подсказывать сам себе.
+    # Популярность - только по fit: hold-out не должен подсказывать сам себе.
     popularity = data.item_popularity(split.fit, index.n_items)
     fit = pipeline.training_frame(split.fit, index, cfg, popularity, counted_in_popularity=True)
     es = pipeline.training_frame(split.early_stop, index, cfg, popularity, counted_in_popularity=False)

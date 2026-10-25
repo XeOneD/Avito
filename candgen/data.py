@@ -55,7 +55,7 @@ def query_text(queries: pd.DataFrame, cfg: Config) -> list[str]:
 
 
 def build_train_queries(cfg: Config, items: pd.DataFrame) -> pd.DataFrame:
-    """Один запрос = уникальная комбинация QUERY_KEY_COLS. Позитивы — выбранные объявления,
+    """Один запрос = уникальная комбинация QUERY_KEY_COLS. Позитивы - выбранные объявления,
     которые есть в корпусе кандидатов (остальные недостижимы и только шумят)."""
     train = pd.read_parquet(cfg.data_dir / "train.parquet", columns=QUERY_KEY_COLS + ["item_id"])
     train["item_id"] = train["item_id"].astype(str)
