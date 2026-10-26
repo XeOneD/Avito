@@ -86,7 +86,6 @@ def add_features(
     item_loc = index.items["item_location_id"].to_numpy()[item]
     item_cat = index.items["item_category_id"].to_numpy()[item]
     out["loc_match"] = (queries["search_location_id"].to_numpy()[q] == item_loc).astype(np.float32)
-    # В старой версии search_category сравнивалась с item_microcat_id (другой справочник).
     out["cat_match"] = (queries["search_category"].to_numpy()[q] == item_cat).astype(np.float32)
 
     numeric = index.numeric.iloc[item].reset_index(drop=True)
