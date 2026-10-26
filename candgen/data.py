@@ -47,8 +47,7 @@ def _clean_queries(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def query_text(queries: pd.DataFrame, cfg: Config) -> list[str]:
-    """Текст запроса для поиска. Одна функция для train, валидации и benchmark:
-    в старой версии они различались, и модель видела на инференсе другие признаки."""
+    # Текст запроса для поиска. Одна функция для train, валидации и benchmark:
     if cfg.infm_in_query:
         return (queries["search_query"] + " " + queries["search_infm_params_text"]).tolist()
     return queries["search_query"].tolist()
